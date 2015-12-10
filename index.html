@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="mSiteModule">
 <head>
     <meta charset="UTF-8">
     <title>Zach Jaghory</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="animations.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
+    <base href="/~zach.jaghory/m/">
 
     <script ng-init="navlinks=[
 {name:'doc_resume',text:'Resume',icon:'nav_link_icon fa fa-file-text-o fa-5x'},
@@ -15,11 +18,14 @@
 {name:'blog',text:'Blog',icon:'nav_link_icon fa fa-newspaper-o fa-5x'},
 {name:'intr_resume',text:'Interactive Resume',icon:'nav_link_icon fa fa-hand-pointer-o fa-5x'},
 {name:'about',text:'About',icon:'nav_link_icon fa fa-user fa-5x'},
+{name:'contact',text:'Contact',icon:'nav_link_icon fa fa-envelope-o fa-5x'},
 {name:'contact',text:'Contact',icon:'nav_link_icon fa fa-envelope-o fa-5x'}]">
 
     </script>
+
+
 </head>
-<body>
+<body data-ng-controller="HomeController">
 
 <div class="container">
     <div class="row">
@@ -33,23 +39,12 @@
     </div>
 
     <div class="row">
-        <div class="col-xs-12 content">
-            <div id="navs" >
-                <div class="navbox_container col-sm-4" ng-repeat="item in navlinks">
-                    <div class="navbox">
-                        <div class="nav_item">
-                            <span ng-class="item.icon"></span>
-                            <div class="nav_link_text_container">
-                                <h3 class="nav_link_text">{{item.text}}</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="col-xs-12 content view_container" data-ng-view>
         </div>
     </div>
 
 </div>
 
 </body>
+<script src="js/app.js"></script>
 </html>

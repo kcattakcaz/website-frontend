@@ -1,0 +1,45 @@
+
+/* slide in from the bottom */
+@keyframes slideOutLeft {
+    to      { transform: translateX(-100%);  opacity: 0.5; }
+}
+
+
+/* slide in from the right */
+@keyframes slideInRight {
+    from    { transform:translateX(100%); }
+    to      { transform: translateX(0); }
+}
+
+@keyframes slideInLeft {
+    from    { transform:translateX(-100%); opacity: 0; }
+    to      { transform: translateX(0); opacity:1; }
+}
+
+@keyframes slideOutRight {
+    from    { transform:translateX(0); }
+    to      { transform: translateX(-100%); }
+}
+
+/* slide in from the bottom */
+@keyframes slideInUp {
+    from    { transform:translateY(100%); }
+    to      { transform: translateY(0); }
+}
+/*
+.ng-enter {animation: slideInRight 0.5s both ease-in; z-index: 8888;}
+.ng-leave {animation: slideOutLeft 0.5s both ease-in; z-index: 9999;}
+*/
+
+.view{
+
+}
+
+.view_container.ng-enter{ animation: slideInLeft 0.5s both ease-in; z-index: 9999;}
+.view_container.ng-leave{ animation: slideOutLeft 0.1s both ease-in; z-index: 8888;}
+/*
+.view2.ng-leave      { animation: slideOutLeft .5s both ease-in;
+    z-index: 9999;}
+.view2.ng-enter      { animation: slideInUp 0.5s both ease-in;
+    z-index: 8888;}
+*/
