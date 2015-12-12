@@ -25,7 +25,7 @@ mSite.config(function($routeProvider, $locationProvider) {
             controller: 'ProjectsController'
         })
         .when('/project/:projID',{
-            templateUrl: 'partials/projects.html',
+            templateUrl: 'partials/project.html',
             controller: 'ProjectsController',
         })
         .when('/blog',{
@@ -113,7 +113,9 @@ mSite.controller('BlogPostController', function($scope, $route, $routeParams, $l
     $scope.$parent.view_heading_visible = true;
     $scope.$parent.view_nav_href = "#/blog";
 
-    $scope.post_data = {title:"Leaving Wordpress",text:"After two years, it's time to let go of Wordpress.  I'm creating my site from scratch now using Angular.js and Bootstrap for the frontend and soon Ruby-on-Rails for the backend."}
+    $scope.post_data = {title:"Leaving Wordpress",text:"After two years, it's time to let go of Wordpress.  I'm creating my site from scratch now using Angular.js and Bootstrap for the frontend and soon Ruby-on-Rails for the backend." +
+    "this is an Angular.js template, that is being filled with information from JSON.  I don't have the sever-side stuff sorted out yet, but I will work on it" +
+    "over the break, probably in Ruby-on-Rails or Node.js.  Seriously, go checkout partials/post.html, you won't find any of this text in there!"}
 
     $scope.$parent.view_title = $scope.post_data.title;
 });
