@@ -26,6 +26,15 @@
     from    { transform:translateY(100%); }
     to      { transform: translateY(0); }
 }
+
+@keyframes slideOutUp {
+    to {transform: translateY(-100%);}
+}
+
+@keyframes slideInDown {
+    from {transform: translateY(-100%);}
+    to {transform: translateY(0);}
+}
 /*
 .ng-enter {animation: slideInRight 0.5s both ease-in; z-index: 8888;}
 .ng-leave {animation: slideOutLeft 0.5s both ease-in; z-index: 9999;}
@@ -35,8 +44,10 @@
 
 }
 
-.view_container.ng-enter{ animation: slideInLeft 0.5s both ease-in; z-index: 9999;}
-.view_container.ng-leave{ animation: slideOutLeft 0.1s both ease-in; z-index: 8888;}
+.view_container.ng-enter{ animation: slideInLeft 0.5s both ease-in; z-index: 1;}
+.view_container.ng-leave{ animation: slideOutLeft 0.1s both ease-in; z-index: 1;}
+.view_heading.ng-hide-remove{ animation: slideInDown 0.5s both ease-in; z-index: -1;}
+.view_heading.ng-hide-add{ animation: slideOutUp 0.1s both ease-in; z-index: -1;}
 /*
 .view2.ng-leave      { animation: slideOutLeft .5s both ease-in;
     z-index: 9999;}
