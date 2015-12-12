@@ -12,7 +12,7 @@ mSite.config(function($routeProvider, $locationProvider) {
             templateUrl: 'partials/index.html',
             controller: 'IndexController',
         })
-        .when('/doc_resume',{
+        .when('/resume',{
             templateUrl: 'partials/resume.html',
             controller: 'ResumeController',
         })
@@ -36,6 +36,22 @@ mSite.config(function($routeProvider, $locationProvider) {
             templateUrl: 'partials/post.html',
             controller: 'BlogPostController'
         })
+        .when('/contact',{
+            templateUrl: 'partials/contact.html',
+            controller: 'ContactController'
+        })
+        .when('/interactiveresume',{
+            templateUrl: 'partials/interactiveresume.html',
+            controller: 'InteractiveResumeController'
+
+        })
+        .when('/interactiveresume/:search',{
+            templateUrl: 'partials/interactiveresume_result.html',
+            controller: 'InteractiveResumeSearchController'
+
+        })
+
+
     $locationProvider.html5Mode(false);
 });
 
@@ -66,10 +82,10 @@ mSite.controller('IndexController', function($scope, $route, $routeParams, $loca
     $scope.$parent.view_title = "Index";
     $scope.$parent.show_view_nav_icon = false;
     $scope.$parent.view_heading_visible = false;
-    $scope.navlinks= [{name:'doc_resume',text:'Resume',icon:'nav_link_icon fa fa-file-text-o fa-5x'},
+    $scope.navlinks= [{name:'resume',text:'Resume',icon:'nav_link_icon fa fa-file-text-o fa-5x'},
     {name:'projects',text:'Projects',icon:'nav_link_icon fa fa-file-code-o fa-5x'},
     {name:'blog',text:'Blog',icon:'nav_link_icon fa fa-newspaper-o fa-5x'},
-    {name:'intr_resume',text:'Interactive Resume',icon:'nav_link_icon fa fa-hand-pointer-o fa-5x'},
+    {name:'interactiveresume',text:'Interactive Resume',icon:'nav_link_icon fa fa-hand-pointer-o fa-5x'},
     {name:'about',text:'About',icon:'nav_link_icon fa fa-user fa-5x'},
     {name:'contact',text:'Contact',icon:'nav_link_icon fa fa-envelope-o fa-5x'}];
 });
@@ -129,4 +145,57 @@ mSite.controller('AboutController', function($scope, $route, $routeParams, $loca
     $scope.$parent.view_heading_visible = true;
     $scope.$parent.view_nav_href = "#/";
     $scope.$parent.view_title = "About Me";
+});
+mSite.controller('ContactController', function($scope, $route, $routeParams, $location) {
+    $scope.$route = $route;
+    $scope.$location = $location;
+    $scope.$routeParams = $routeParams;
+    $scope.$parent.view_nav_icon = "fa fa-arrow-left fa-3x";
+    $scope.$parent.show_view_nav_icon = true;
+    $scope.$parent.view_heading_visible = true;
+    $scope.$parent.view_nav_href = "#/";
+    $scope.$parent.view_title = "Contact Info";
+});
+
+mSite.controller('InteractiveResumeController', function($scope, $route, $routeParams, $location) {
+    $scope.$route = $route;
+    $scope.$location = $location;
+    $scope.$routeParams = $routeParams;
+    $scope.$parent.view_title = "Interactive Resume";
+    $scope.$parent.view_nav_icon = "fa fa-arrow-left fa-3x";
+    $scope.$parent.show_view_nav_icon = true;
+    $scope.$parent.view_heading_visible = true;
+    $scope.$parent.view_nav_href = "#/";
+    $scope.projects_list = [
+        {name: 'angularjs', text: 'Angular.js', tech: '(1) project'},
+        {name: 'java', text: 'Java', tech: '(5) projects'},
+        {name: 'laravel', text: 'PHP / Laravel', tech: '(2) projects'},
+        {name: 'cplusplus', text: 'C++', tech: '(3) projects'},
+        {name: 'python', text: 'Python', tech: '(0) projects'},
+        {name: 'qt', text: 'Qt', tech: '(1) project'}
+    ];
+});
+mSite.controller('InteractiveResumeSearchController', function($scope, $route, $routeParams, $location) {
+    $scope.$route = $route;
+    $scope.$location = $location;
+    $scope.$routeParams = $routeParams;
+    $scope.$parent.view_title = "Search for {{search}}";
+    $scope.$parent.view_nav_icon = "fa fa-arrow-left fa-3x";
+    $scope.$parent.show_view_nav_icon = true;
+    $scope.$parent.view_heading_visible = true;
+    $scope.$parent.view_nav_href = "#/interactiveresume";
+    $scope.projects_list= [
+        {name:'mi491app',text:'Android IM App',tech:'MI 491 final project'},
+        {name:'mi349site',text:'Personal Website',tech:'MI 349 final project'},
+        {name: 'studymore',text:'Study More for Pebble',tech:'Local Hack Day project'},
+        {name: 'Laravel',text:'Laravel',tech:'Job experience'},
+        {name: 'sorteria',text:'Sorteria',tech:'Personal project'},
+        {name: 'result',text:'Result Name',tech:'source'},
+        {name: 'result',text:'Result Name',tech:'source'},
+        {name: 'result',text:'Result Name',tech:'source'},
+        {name: 'result',text:'Result Name',tech:'source'},
+        {name: 'result',text:'Result Name',tech:'source'}
+
+
+    ];
 });

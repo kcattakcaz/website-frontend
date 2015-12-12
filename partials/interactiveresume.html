@@ -1,0 +1,14 @@
+<div class="view">
+    <div class="navbox_container col-sm-4" data-ng-repeat="item in projects_list">
+        <a onclick="alert('Server side search is not finished yet, it would have retrieved a list of the projects, and resume items.')" data-ng-href="#/interactiveresume/{{item.name}}">
+            <div class="navbox">
+                <div class="nav_item">
+                    <h2 class="nav_link_icon">{{item.text}}</h2>
+                    <div class="nav_link_text_container">
+                        <h3 class="nav_link_text">{{item.tech}}</h3>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
